@@ -1,0 +1,63 @@
+{
+  "name": "digital_police_web",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "antd": "^3.19.8",
+    "axios": "^0.19.0",
+    "delay": "^4.3.0",
+    "js-cookie": "^2.2.0",
+    "lodash": "^4.17.11",
+    "mobx": "^5.10.1",
+    "mobx-react": "^5.4.4",
+    "mobx-react-devtools": "^6.1.1",
+    "mobx-react-router": "^4.0.7",
+    "moment": "^2.24.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-loadable": "^5.5.0",
+    "react-router-config": "^5.0.1",
+    "react-router-dom": "^5.0.1",
+    "react-transition-group": "^4.1.1",
+    "reflect-metadata": "^0.1.13",
+    "tslib": "^1.10.0"
+  },
+  "scripts": {
+    "lint-styl": "stylint src/styles/stylus",
+    "start-ts": "react-app-rewired start --scripts-version react-scripts-ts",
+    "start": "npm-run-all start-ts",
+    "build-ts": "react-app-rewired build --scripts-version react-scripts-ts",
+    "build": "npm-run-all lint build-ts",
+    "lint": "tslint -p tsconfig.json -c tslint.json",
+    "eject": "react-scripts-ts eject"
+  },
+  "devDependencies": {
+    "@material-ui/core": "^4.1.2",
+    "@types/jest": "^24.0.15",
+    "@types/js-cookie": "^2.2.2",
+    "@types/lodash": "^4.14.135",
+    "@types/node": "^12.0.10",
+    "@types/react": "^16.8.22",
+    "@types/react-dom": "^16.8.4",
+    "@types/react-loadable": "^5.5.1",
+    "@types/react-router": "^5.0.2",
+    "@types/react-router-config": "^5.0.0",
+    "@types/react-router-dom": "^4.3.4",
+    "@types/react-transition-group": "^2.9.2",
+    "@types/webpack-env": "^1.13.9",
+    "husky": "^2.5.0",
+    "npm-run-all": "^4.1.5",
+    "react-app-rewired": "1.6.2",
+    "react-scripts-ts": "3.1.0",
+    "stylint": "^1.5.9",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.2",
+    "typescript": "^3.6.0-dev.20190626"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint && yarn lint-styl"
+    }
+  },
+  "config-overrides-path": "./webpack.config.js"
+}
