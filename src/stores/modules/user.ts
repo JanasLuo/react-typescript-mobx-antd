@@ -14,7 +14,7 @@ export class UserStore {
     return this.isLogin
   }
 
-  public getAccount (): Map<string, any> | boolean {
+  public getAccount (): any {
     if (this.account) {
       return this.account
     } else if (Cookies.get('account_info')) {
@@ -30,7 +30,7 @@ export class UserStore {
     }
   }
 
-  @action public saveLoginData (accountInfo: Map<string, any>) {
+  @action public saveLoginData (accountInfo: any) {
     Cookies.set('account_info', encodeURIComponent(JSON.stringify(accountInfo)))
     this.account = accountInfo
     this.isLogin = true

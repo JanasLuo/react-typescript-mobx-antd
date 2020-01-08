@@ -33,7 +33,10 @@ class Login extends React.Component<LoginProps, {}> {
   public login = async (e: any): Promise<any> => {
     e.preventDefault()
     this.props.history.replace('/main/home')
-
+    this.userStore.saveLoginData({
+      name: '张三',
+      token: 'aaaa'
+    })
     // this.props.form.validateFields(async (err: any, values: any) => {
     //   if (!err) {
     //     const putData: any = {

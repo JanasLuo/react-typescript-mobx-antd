@@ -1,38 +1,34 @@
-import * as React from 'react'
-import { observer } from 'mobx-react'
+/* hooks组件 */
+
+import React, { useState, useEffect, useRef, useCallback } from 'react'
+// import { inject } from 'mobx-react'
+import { observer, useLocalStore } from 'mobx-react-lite' // 6.x or mobx-react-lite@1.4.0
 import moment from 'moment'
+import userStore from 'src/stores/modules/user'
 
 export interface HeaderProps {
   sigout: () => Promise<any>
 }
 
-@observer
-export default class HeaderNav extends React.Component<HeaderProps, {}> {
+const Header = (props: HeaderProps) => {
+    const store = useLocalStore(() => userStore)
+    const [timer, setTimer] = useState();
+    const timeStamp: React.RefObject<any> = useRef(null);
 
-  public timeStamp: React.RefObject<any>
-  public timer: any
-  constructor (props: any) {
-    super(props)
-    this.timeStamp = React.createRef()
-  }
-
-  public sigout = () => {
-     this.props.sigout()
-  }
-
-  public componentDidMount () {
-    const update = () => {
-      this.timeStamp.current.innerHTML = moment(new Date()).format('YYYY-MM-DD HH:mm:ss')
+    function sigout () {
+      store.sigout()
     }
-    update()
-    this.timer = setInterval(update, 1000)
-  }
 
-  public componentWillUnmount () {
-    clearInterval(this.timer)
-  }
- 
-  public render () {
+    useEffect(() => {
+      const update = () => {
+        timeStamp.current.innerHTML = moment(new Date()).format('YYYY-MM-DD HH:mm:ss')
+      }
+      update()
+      setTimer(setInterval(update, 1000))
+      return () => {
+        clearInterval(timer)
+      }
+    }, [])
     return (
       <div className="header-main">
         <div className="left-box">
@@ -49,15 +45,15 @@ export default class HeaderNav extends React.Component<HeaderProps, {}> {
         </div>
         <div className="right-box">
             <span>
-              <span className="place">陈警官</span>
+              <span className="place">{store.getAccount().name}</span>
               <span className="place">026000</span>
               <span className="place">派出所</span>
             </span>       
-          <span className="time" ref={this.timeStamp}>
-          </span>
-          <span className="logout" onClick={this.sigout}>退出</span>
+            <span className="time" ref={timeStamp}></span>
+          <span className="logout" onClick={useCallback(() => sigout(), [])}>退出</span>
         </div>
       </div>
     )
-  }
 }
+
+export default observer(Header)
