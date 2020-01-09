@@ -1,6 +1,8 @@
 /* hooks组件 */
 
-import React, { useState, useEffect, useRef, useCallback } from 'react'
+import React, { useState, useEffect, 
+  useRef, 
+  useCallback } from 'react'
 // import { inject } from 'mobx-react'
 import { observer, useLocalStore } from 'mobx-react-lite' // 6.x or mobx-react-lite@1.4.0
 import moment from 'moment'
@@ -12,7 +14,7 @@ export interface HeaderProps {
 
 const Header = (props: HeaderProps) => {
     const store = useLocalStore(() => userStore)
-    const [timer, setTimer] = useState();
+    const [count, setCount] = useState(0);
     const timeStamp: React.RefObject<any> = useRef(null);
 
     function sigout () {
@@ -22,9 +24,12 @@ const Header = (props: HeaderProps) => {
     useEffect(() => {
       const update = () => {
         timeStamp.current.innerHTML = moment(new Date()).format('YYYY-MM-DD HH:mm:ss')
+        setCount(c => c + 1)
+        // useCallback(() => setCount(count + 1), [count])
+        // setCount(count + 1)
       }
-      update()
-      setTimer(setInterval(update, 1000))
+      // update()
+      const timer = setInterval(update, 1000)
       return () => {
         clearInterval(timer)
       }
@@ -46,7 +51,7 @@ const Header = (props: HeaderProps) => {
         <div className="right-box">
             <span>
               <span className="place">{store.getAccount().name}</span>
-              <span className="place">026000</span>
+              <span className="place">{count}</span>
               <span className="place">派出所</span>
             </span>       
             <span className="time" ref={timeStamp}></span>
