@@ -2,11 +2,13 @@
 
 import React, { useState, useEffect, 
   useRef, 
-  useCallback } from 'react'
+  useCallback
+} from 'react'
 // import { inject } from 'mobx-react'
 import { observer, useLocalStore } from 'mobx-react-lite' // 6.x or mobx-react-lite@1.4.0
 import moment from 'moment'
 import userStore from 'src/stores/modules/user'
+// import { useHistory } from 'react-router';
 
 export interface HeaderProps {
   sigout: () => Promise<any>
@@ -16,16 +18,21 @@ const Header = (props: HeaderProps) => {
     const store = useLocalStore(() => userStore)
     const [count, setCount] = useState(0);
     const timeStamp: React.RefObject<any> = useRef(null);
-
-    function sigout () {
-      store.sigout()
+   
+    /* 集成Mobx测试 */
+    const back = useCallback(() => store.sigout(), [])
+    function sigoutByMobx () {
+      back()
     }
-
+    /* 集成react-router测试 */
+    // const history = useHistory();
+    // function sigoutByRouter () {
+    //   history.push('/login');
+    // }
     useEffect(() => {
       const update = () => {
         timeStamp.current.innerHTML = moment(new Date()).format('YYYY-MM-DD HH:mm:ss')
         setCount(c => c + 1)
-        // useCallback(() => setCount(count + 1), [count])
         // setCount(count + 1)
       }
       // update()
@@ -55,7 +62,8 @@ const Header = (props: HeaderProps) => {
               <span className="place">派出所</span>
             </span>       
             <span className="time" ref={timeStamp}></span>
-          <span className="logout" onClick={useCallback(() => sigout(), [])}>退出</span>
+          <span className="logout" onClick={() => sigoutByMobx()}>退出</span>
+          {/* <span className="logout" onClick={() => sigoutByRouter()}>退出</span> */}
         </div>
       </div>
     )
