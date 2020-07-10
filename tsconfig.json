@@ -19,7 +19,9 @@
     "strictNullChecks": true,
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true
   },
   "exclude": [
     "node_modules",
@@ -30,8 +32,5 @@
     "jest",
     "src/setupTests.ts"
   ],
-  "types": [
-    "typePatches",
-    "webpack-env"
-  ]
+  "types": ["typePatches", "webpack-env"]
 }

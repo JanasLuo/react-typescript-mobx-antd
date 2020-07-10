@@ -1,17 +1,35 @@
 {
-  "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
+  "extends": [
+    "tslint:recommended",
+    "tslint-react",
+    "tslint-config-prettier"
+  ],
   "linterOptions": {
     "exclude": [
       "config/**/*.js",
       "node_modules/**/*.ts",
-      "coverage/lcov-report/*.js"
+      "coverage/lcov-report/*.js",
+      "src/utils/map_layer/*.*",
+      "*.json",
+      "**/*.json"
     ]
   },
   "jsRules": {
-    "object-literal-sort-keys": false
+    "object-literal-sort-keys": false,
+    "no-debugger": false,
+    "no-console": [
+      false,
+      "log",
+      "error",
+      "debug",
+      "info",
+      "time",
+      "timeEnd",
+      "trace"
+    ]
   },
   "rules": {
-     "align": [
+    "align": [
       true,
       "parameters",
       "statements"
@@ -25,13 +43,22 @@
     "curly": true,
     "eofline": false,
     "forin": true,
-    "indent": [ true, "spaces" ],
-    "interface-name": [false, "never-prefix"],
+    "indent": [
+      true,
+      "spaces"
+    ],
+    "interface-name": [
+      false,
+      "never-prefix"
+    ],
     "jsdoc-format": true,
     "jsx-no-lambda": false,
     "jsx-no-multiline-js": false,
     "label-position": true,
-    "max-line-length": [ false, 120 ],
+    "max-line-length": [
+      false,
+      120
+    ],
     "max-classes-per-file": true,
     "member-ordering": [
       true,
@@ -56,7 +83,7 @@
     "no-duplicate-variable": true,
     "no-empty": true,
     "no-eval": true,
-    "no-shadowed-variable": true,
+    "no-shadowed-variable": false,
     "no-string-literal": true,
     "no-switch-case-fall-through": true,
     "no-trailing-whitespace": false,
@@ -73,11 +100,20 @@
     ],
     "ordered-imports": false,
     "object-literal-sort-keys": false,
-    "quotemark": [true, "single", "jsx-double"],
+    "quotemark": [
+      true,
+      "single",
+      "jsx-double"
+    ],
     "radix": true,
     "switch-default": true,
-    "trailing-comma": [false],
-    "triple-equals": [ true, "allow-null-check" ],
+    "trailing-comma": [
+      false
+    ],
+    "triple-equals": [
+      true,
+      "allow-null-check"
+    ],
     "typedef": [
       true,
       "parameter",
@@ -93,7 +129,15 @@
         "variable-declaration": "nospace"
       }
     ],
-    "variable-name": [true, "ban-keywords", "check-format", "allow-leading-underscore", "allow-pascal-case"],
+    "variable-name": {
+      "options": [
+        "ban-keywords",
+        "allow-pascal-case",
+        "allow-leading-underscore",
+        "allow-trailing-underscore",
+        "allow-snake-case"
+      ]
+    },
     "whitespace": [
       true,
       "check-branch",
