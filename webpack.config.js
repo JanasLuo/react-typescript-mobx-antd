@@ -1,6 +1,6 @@
 const proxyObject = require('./proxy.conf')
 
-module.exports = { 
+module.exports = {
   webpack: (config, env) => {
     config.module.rules = config.module.rules.map(rule => {
       if (rule.oneOf instanceof Array) {
@@ -8,8 +8,8 @@ module.exports = {
           ...rule,
           oneOf: [
             {
-              test: /\.styl$/, 
-              loader: 'style-loader!css-loader!stylus-loader' 
+              test: /\.styl$/,
+              loader: 'style-loader!css-loader?modules&localIdentName=[name]-[hash:base64:10]!stylus-loader'
             },
             ...rule.oneOf
           ]
@@ -25,7 +25,7 @@ module.exports = {
       return (proxy, allowedHost) => {
         const config = configFunction(
           {
-            ...proxy, 
+            ...proxy,
             ...proxyObject
           },
           allowedHost);
