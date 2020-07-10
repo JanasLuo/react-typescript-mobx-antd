@@ -9,7 +9,7 @@ import userStore from 'src/stores/modules/user'
 import { useHistory } from 'react-router' // 5.1.0以上
 import { withRouter } from 'react-router-dom'
 // import CSSModules from 'react-css-modules'
-// import style from './header.styl'
+import style from './header.styl'
 export interface HeaderProps {
   sigout: () => Promise<any>
 }
@@ -61,7 +61,7 @@ const Header = (props: any) => {
     console.log(count)
   }, [store.account.name])
   return (
-    <div className="header-main">
+    <div className={`${'header-main'} ${style.header}`}>
       <div className="left-box">
         <div className="op-box">
           <i className="menu"></i>
