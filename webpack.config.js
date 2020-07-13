@@ -1,4 +1,4 @@
-const proxyObject = require('./proxy.conf')
+const proxyObject = require('./config/proxy.conf')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 module.exports = {
   webpack: (config, env) => {
