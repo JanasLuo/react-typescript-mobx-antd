@@ -1,17 +1,23 @@
 {
-  "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
+  "extends": [
+    "tslint:recommended",
+    "tslint-react",
+    "tslint-config-prettier"
+  ],
   "linterOptions": {
     "exclude": [
       "config/**/*.js",
       "node_modules/**/*.ts",
-      "coverage/lcov-report/*.js"
+      "coverage/lcov-report/*.js",
+      "*.json",
+      "**/*.json"
     ]
   },
   "jsRules": {
     "object-literal-sort-keys": false
   },
   "rules": {
-     "align": [
+    "align": [
       true,
       "parameters",
       "statements"
@@ -25,13 +31,22 @@
     "curly": true,
     "eofline": false,
     "forin": true,
-    "indent": [ true, "spaces" ],
-    "interface-name": [false, "never-prefix"],
+    "indent": [
+      true,
+      "spaces"
+    ],
+    "interface-name": [
+      false,
+      "never-prefix"
+    ],
     "jsdoc-format": true,
     "jsx-no-lambda": false,
     "jsx-no-multiline-js": false,
     "label-position": true,
-    "max-line-length": [ false, 120 ],
+    "max-line-length": [
+      false,
+      120
+    ],
     "max-classes-per-file": true,
     "member-ordering": [
       true,
@@ -73,11 +88,20 @@
     ],
     "ordered-imports": false,
     "object-literal-sort-keys": false,
-    "quotemark": [true, "single", "jsx-double"],
+    "quotemark": [
+      true,
+      "single",
+      "jsx-double"
+    ],
     "radix": true,
     "switch-default": true,
-    "trailing-comma": [false],
-    "triple-equals": [ true, "allow-null-check" ],
+    "trailing-comma": [
+      false
+    ],
+    "triple-equals": [
+      true,
+      "allow-null-check"
+    ],
     "typedef": [
       true,
       "parameter",
@@ -93,7 +117,13 @@
         "variable-declaration": "nospace"
       }
     ],
-    "variable-name": [true, "ban-keywords", "check-format", "allow-leading-underscore", "allow-pascal-case"],
+    "variable-name": [
+      true,
+      "ban-keywords",
+      "check-format",
+      "allow-leading-underscore",
+      "allow-pascal-case"
+    ],
     "whitespace": [
       true,
       "check-branch",

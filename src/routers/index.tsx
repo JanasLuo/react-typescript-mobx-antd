@@ -1,4 +1,3 @@
-
 import { createBrowserHistory } from 'history'
 import { RouterStore, syncHistoryWithStore } from 'mobx-react-router'
 import * as React from 'react'
@@ -24,22 +23,17 @@ const LoadableLogin = Loadable({
 })
 
 export default class AppRouter extends React.Component<{}, {}> {
-  public render () {
- 
+  public render() {
     return (
       <Router history={history}>
         <Switch>
-          <Route
-            path="/main"
-            component={LoadableMain}
-          />
-          <Route
-            path="/login"
-            component={LoadableLogin}
-          />
+          <Route path="/main" component={LoadableMain} />
+          <Route path="/login" component={LoadableLogin} />
           <Redirect to="/main" />
         </Switch>
       </Router>
     )
   }
 }
+
+export { history }

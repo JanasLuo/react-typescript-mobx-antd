@@ -1,26 +1,29 @@
 import { action, observable } from 'mobx'
 import Cookies from 'js-cookie'
-
+import { history } from 'src/routers'
 export class UserStore {
-
   @observable private isLogin: boolean
-  @observable private account !: Map<string, any> | undefined
+  @observable private account!: Map<string, any> | undefined
 
-  constructor () {
+  constructor() {
     this.isLogin = false
   }
 
-  public get getIsLogin (): boolean {
+  public get getIsLogin(): boolean {
     return this.isLogin
   }
 
-  public getAccount (): any {
+  public getAccount(): any {
     if (this.account) {
       return this.account
-    } else if (Cookies.get('account_info')) {
-      let accountInfo !: Map<string, any>
+    } else if (window.localStorage.getItem('account_info')) {
+      let accountInfo!: Map<string, any>
       try {
-        accountInfo = JSON.parse(decodeURIComponent(Cookies.get('account_info') as string))
+        accountInfo = JSON.parse(
+          decodeURIComponent(
+            window.localStorage.getItem('account_info') as string
+          )
+        )
       } catch (e) {
         console.log(e)
       }
@@ -30,18 +33,31 @@ export class UserStore {
     }
   }
 
-  @action public saveLoginData (accountInfo: any) {
-    Cookies.set('account_info', encodeURIComponent(JSON.stringify(accountInfo)))
+  @action public getAuthHeader(): any {
+    return {
+      Authorization: `Bearer ${Cookies.get('access_token')}`,
+      dp_user_id: Cookies.get('dp_user_id'),
+      sys_role: Cookies.get('sys_role')
+    }
+  }
+
+  @action public getAccessToken(): any {
+    return Cookies.get('access_token')
+  }
+
+  @action public login(accountInfo: any) {
+    window.localStorage.clear()
+    window.localStorage.setItem('account_info', JSON.stringify(accountInfo))
     this.account = accountInfo
     this.isLogin = true
   }
 
-  @action public sigout () {
-    Cookies.remove('account_info')
-    Cookies.remove('menu_cache')
+  @action public sigout() {
+    Cookies.remove('access_token')
+    window.localStorage.clear()
     this.account = undefined
     this.isLogin = false
-    location.replace('/login')
+    history.push('/login')
   }
 }
 
