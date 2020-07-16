@@ -1,11 +1,9 @@
 import { observer, inject } from 'mobx-react'
 import * as React from 'react'
 import { Menu, message } from 'antd'
-import { Route, Switch, Redirect, RouteComponentProps } from 'react-router'
-import { TransitionGroup, CSSTransition } from 'react-transition-group'
+import { RouteComponentProps } from 'react-router'
 import { observable } from 'mobx'
-
-import Home from './home'
+import MainRoute from './route'
 import HeaderNav from 'src/components/header'
 
 import { UserService } from 'src/services/user'
@@ -14,7 +12,6 @@ import { UserStore } from 'src/stores/modules/user'
 @inject('userService', 'userStore')
 @observer
 class Main extends React.Component<RouteComponentProps<{}>, {}> {
-
   public userService: UserService
   public userStore: UserStore
 
@@ -22,12 +19,12 @@ class Main extends React.Component<RouteComponentProps<{}>, {}> {
   @observable public selectItem: string[]
   @observable public selectExpand: string[] = []
 
-  constructor (props: any) {
+  constructor(props: any) {
     super(props)
     this.initConfig(props)
   }
 
-  public initConfig (props: any): void {
+  public initConfig(props: any): void {
     this.userService = props.userService
     this.userStore = props.userStore
   }
@@ -45,12 +42,10 @@ class Main extends React.Component<RouteComponentProps<{}>, {}> {
     }
   }
 
-  public render () {
-    const location = this.props.location
-    const { pathname } = location
+  public render() {
     return (
       <div className="main">
-        <HeaderNav sigout={this.sigout}/>
+        <HeaderNav sigout={this.sigout} />
         <div className="main-body">
           <div className="menu-slide"></div>
           <div>
@@ -58,31 +53,19 @@ class Main extends React.Component<RouteComponentProps<{}>, {}> {
               selectedKeys={this.selectItem}
               openKeys={this.selectExpand}
               mode="inline"
-              theme="dark">
+              theme="dark"
+            >
               <Menu.Item
                 onClick={this.chooseMenu.bind(this, '首页')}
                 key={'首页'}
                 title={'首页'}
-                >
+              >
                 <span className="menu-name">首页</span>
               </Menu.Item>
             </Menu>
           </div>
           <div className="right-body">
-            <TransitionGroup className="main-route">
-              <CSSTransition
-                key={pathname.split('/')[2]}
-                timeout={{ enter: 1000, exit: 0 }}
-                classNames={'fade'}>
-                  <Switch location={location}>
-                    <Route
-                      path="/main/home"
-                      component={Home}
-                    />
-                    <Redirect to="/main/home" />
-                  </Switch>
-              </CSSTransition>
-            </TransitionGroup>
+            <MainRoute {...this.props}></MainRoute>
           </div>
         </div>
       </div>
