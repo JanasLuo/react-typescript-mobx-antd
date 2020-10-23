@@ -16,6 +16,7 @@
     "mobx-react-lite": "1.4.0",
     "mobx-react-router": "^4.0.7",
     "moment": "^2.24.0",
+    "qiankun": "^2.2.1",
     "react": "^16.8.6",
     "react-css-modules": "^4.7.11",
     "react-dom": "^16.8.6",

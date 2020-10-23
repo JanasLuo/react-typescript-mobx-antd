@@ -11,6 +11,23 @@ import services from './services'
 import 'antd/dist/antd.css'
 import './styles/stylus/index.styl'
 
+import { registerMicroApps, start } from 'qiankun';
+registerMicroApps([
+  {
+    name: 'react app', // app name registered
+    entry: '//localhost:9009',
+    container: '#yourContainer',
+    activeRule: '/yourActiveRule',
+  },
+  {
+    name: 'vue app',
+    entry: '//localhost:9010',
+    container: '#yourContainer2',
+    activeRule: '/yourActiveRule2',
+  },
+]);
+start();
+
 ReactDOM.render(
   <Provider {...stores} {...services}>
     <App>
