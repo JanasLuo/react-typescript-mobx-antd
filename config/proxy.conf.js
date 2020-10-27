@@ -1,6 +1,7 @@
+const target = "http://192.168.18.93:8080"
 module.exports = {
   "/api": {
-    "target": "http://192.168.18.93:8080",
+    "target": target,
     "changeOrigin": true,
     "ws": false,
     "pathRewrite": {

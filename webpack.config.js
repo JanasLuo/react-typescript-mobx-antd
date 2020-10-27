@@ -1,5 +1,5 @@
-const proxyObject = require('./proxy.conf')
-
+const proxyObject = require('./config/proxy.conf')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 module.exports = {
   webpack: (config, env) => {
     config.module.rules = config.module.rules.map(rule => {
@@ -26,6 +26,10 @@ module.exports = {
       }
       return rule;
     });
+    if (env === 'production') {
+      delete config.devtool
+      // config.plugins.push(new BundleAnalyzerPlugin()) // 打包分析
+    }
     config.externals = ['canvas']
     return config;
   },

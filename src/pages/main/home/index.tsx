@@ -21,8 +21,8 @@ export default class Home extends React.Component<HomePorps, {}> {
   public render () {
     return (
       <div className="home-main">
-        
-        首页
+        <div id="reactApp" style={{ height: '400px'}}></div>
+        <div id="vueApp" style={{ height: '400px'}}></div>
       </div>
     )
   }

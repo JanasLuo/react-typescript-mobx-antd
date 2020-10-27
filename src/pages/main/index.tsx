@@ -1,11 +1,9 @@
 import { observer, inject } from 'mobx-react'
 import * as React from 'react'
 import { Menu, message } from 'antd'
-import { Route, Switch, Redirect, RouteComponentProps } from 'react-router'
-import { TransitionGroup, CSSTransition } from 'react-transition-group'
+import { RouteComponentProps } from 'react-router'
 import { observable } from 'mobx'
-
-import Home from './home'
+import MainRoute from './route'
 import HeaderNav from 'src/components/header'
 
 import { UserService } from 'src/services/user'
@@ -45,8 +43,6 @@ class Main extends React.Component<RouteComponentProps<{}>, {}> {
   }
 
   public render() {
-    const location = this.props.location
-    const { pathname } = location
     return (
       <div className="main">
         <HeaderNav sigout={this.sigout} />
@@ -68,19 +64,10 @@ class Main extends React.Component<RouteComponentProps<{}>, {}> {
               </Menu.Item>
             </Menu>
           </div>
+          <div id="reactApp"></div>
+          <div id="vueApp" style={{ height: '400px'}}></div>
           <div className="right-body">
-            <TransitionGroup className="main-route">
-              <CSSTransition
-                key={pathname.split('/')[2]}
-                timeout={{ enter: 1000, exit: 0 }}
-                classNames={'fade'}
-              >
-                <Switch location={location}>
-                  <Route path="/main/home" component={Home} />
-                  <Redirect to="/main/home" />
-                </Switch>
-              </CSSTransition>
-            </TransitionGroup>
+            <MainRoute {...this.props}></MainRoute>
           </div>
         </div>
       </div>
