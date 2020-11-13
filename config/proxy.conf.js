@@ -1,4 +1,4 @@
-const target = "http://192.168.18.93:8080"
+const target = "http://39.106.114.130"
 module.exports = {
   "/api": {
     "target": target,
