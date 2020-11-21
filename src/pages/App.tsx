@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { inject, observer } from 'mobx-react'
 import Loading from '../components/loading'
-import MicroApp from '../components/micro_app'
+// import MicroApp from '../components/micro_app'
 import { observable } from 'mobx'
 import { LoaderStore } from '../stores/modules/loader'
 import { ConfigProvider } from 'antd'
@@ -26,7 +26,7 @@ class App extends React.Component<{}, {}> {
     return (
       <ConfigProvider locale={zh_CN}>
         <div className="app">
-          {/* {this.props.children} */}
+          <div>{this.props.children}</div>
           <div
             className={`loading-box ${
               this.loaderStore.getLoading ? 'show' : ''
@@ -34,11 +34,11 @@ class App extends React.Component<{}, {}> {
           >
             <Loading />
           </div>
-          {/* <div id="reactApp"></div> */}
+          {/* <div id="reactApp" style={{ height: '200px' }}></div> */}
           {/* <div id="vueApp" style={{ height: '400px'}}></div> */}
-          {/* <MicroApp name="react-app" url="//localhost:20000"></MicroApp> */}
-          <MicroApp name="dpadmin" url="//localhost:30000"></MicroApp>
-          <MicroApp name="vueApp" url="//localhost:10000"></MicroApp>
+          {/* <MicroApp name="react-app" url="//localhost:20000"></MicroApp>
+          <MicroApp name="dpadmin" url="//localhost:30000"></MicroApp> */}
+          {/* <MicroApp name="vueApp" url="//localhost:10000"></MicroApp> */}
         </div>
       </ConfigProvider>
     )

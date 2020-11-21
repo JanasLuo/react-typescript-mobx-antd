@@ -1,11 +1,14 @@
 /* 主页面路由组件 */
 import * as React from 'react'
-import { Route, Switch, 
-  // Redirect 
+import {
+  Route,
+  Switch
+  // Redirect
 } from 'react-router'
 import { TransitionGroup, CSSTransition } from 'react-transition-group'
 import Loadable from 'react-loadable'
 import { LoadableLoading } from 'src/components/loading'
+
 const Home = Loadable({
   loader: () => import('./home'),
   loading: LoadableLoading
@@ -30,7 +33,7 @@ class MainRoute extends React.Component<any, {}> {
           classNames={'fade'}
         >
           <Switch location={location}>
-            <Route path="/main/home" component={Home} />
+            <Route path="/main/group" component={Home} />
             <Route path="/main/404" component={notFound} />
             {/* <Redirect to="/main/404" /> */}
           </Switch>

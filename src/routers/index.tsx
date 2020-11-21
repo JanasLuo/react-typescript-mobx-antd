@@ -1,9 +1,7 @@
 import { createBrowserHistory } from 'history'
 import { RouterStore, syncHistoryWithStore } from 'mobx-react-router'
 import * as React from 'react'
-import { Route, Router, Switch,
-  //  Redirect 
-  } from 'react-router'
+import { Route, Router, Switch, Redirect } from 'react-router'
 import Loadable from 'react-loadable'
 
 import { LoadableLoading } from 'src/components/loading'
@@ -30,8 +28,9 @@ export default class AppRouter extends React.Component<{}, {}> {
       <Router history={history}>
         <Switch>
           <Route path="/main" component={LoadableMain} />
+          <Route path="/dpadmin" component={LoadableMain} />
           <Route path="/login" component={LoadableLogin} />
-          {/* <Redirect to="/main" /> */}
+          <Redirect to="/main" />
         </Switch>
       </Router>
     )

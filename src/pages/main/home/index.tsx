@@ -1,7 +1,7 @@
 import * as React from 'react'
-import { inject, observer } from 'mobx-react';
+import { inject, observer } from 'mobx-react'
 import { UserStore } from 'src/stores/modules/user'
-import { RouteComponentProps } from 'react-router';
+import { RouteComponentProps } from 'react-router'
 
 interface HomePorps extends RouteComponentProps {
   userStore: UserStore
@@ -9,20 +9,20 @@ interface HomePorps extends RouteComponentProps {
 
 @inject('userStore')
 @observer
-export default class Home extends React.Component<HomePorps, {}> {  
-
+export default class Home extends React.Component<HomePorps, {}> {
   public userStore: UserStore
 
-  constructor (props: any) {
+  constructor(props: any) {
     super(props)
     this.userStore = props.userStore
   }
 
-  public render () {
+  public render() {
     return (
       <div className="home-main">
-        <div id="reactApp" style={{ height: '400px'}}></div>
-        <div id="vueApp" style={{ height: '400px'}}></div>
+        home
+        {/* <div id="reactApp" style={{ height: '400px'}}></div>
+        <div id="vueApp" style={{ height: '400px'}}></div> */}
       </div>
     )
   }
