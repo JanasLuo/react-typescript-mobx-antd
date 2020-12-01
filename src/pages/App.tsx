@@ -36,8 +36,9 @@ class App extends React.Component<{}, {}> {
           </div>
           {/* <div id="reactApp" style={{ height: '200px' }}></div> */}
           {/* <div id="vueApp" style={{ height: '400px'}}></div> */}
-          {/* <MicroApp name="react-app" url="//localhost:20000"></MicroApp>
-          <MicroApp name="dpadmin" url="//localhost:30000"></MicroApp> */}
+          {/* <MicroApp name="react-app" url="//localhost:20000"></MicroApp> */}
+          {/* <MicroApp name="dpadmin" url="//localhost:30000"></MicroApp> */}
+          {/* <MicroApp name="keyperson" url="//localhost:3001"></MicroApp> */}
           {/* <MicroApp name="vueApp" url="//localhost:10000"></MicroApp> */}
         </div>
       </ConfigProvider>

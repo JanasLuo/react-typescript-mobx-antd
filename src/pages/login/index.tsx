@@ -4,6 +4,7 @@ import { Form, Icon, Input, Button, Checkbox } from 'antd'
 import { RouteComponentProps } from 'react-router'
 import { UserService } from 'src/services/user'
 import { UserStore } from 'src/stores/modules/user'
+import { message } from 'antd'
 
 export interface LoginProps extends RouteComponentProps<{}> {
   form: any
@@ -25,28 +26,30 @@ class Login extends React.Component<LoginProps, {}> {
 
   public login = async (e: any): Promise<any> => {
     e.preventDefault()
-    this.props.history.replace('/main/home')
-    this.userStore.login({
-      name: '张三',
-      token: 'aaaa'
-    })
-    // this.props.form.validateFields(async (err: any, values: any) => {
-    //   if (!err) {
-    //     const putData: any = {
-    //       ...values,
-    //       remember: undefined
-    //     }
-    //     const res = await this.userService.sign(putData)
-    //     if (res.status === 0) {
-    //       message.success('登录成功')
-    //       this.userStore.login(res.data)
-    //       this.menuStore.reCache()
-    //       this.props.history.replace('/main/home')
-    //     } else {
-    //       message.error(res.msg || '登录失败')
-    //     }
-    //   }
+    // this.props.history.replace('/main/home')
+    // this.userStore.login({
+    //   name: '张三',
+    //   token: 'aaaa'
     // })
+    this.props.form.validateFields(async (err: any, values: any) => {
+      if (!err) {
+        const putData: any = {
+          ...values,
+          login_from: 2, // 与前台系统登录做区分
+          remember: undefined
+        }
+        const res = await this.userService.sign(putData)
+        if (res.status === 0) {
+          message.success('登录成功')
+          this.userStore.login(res.data)
+          // this.menuStore.reCache()
+          this.props.history.replace('/main/group')
+          // this.props.history.replace('/dpadmin/main')
+        } else {
+          message.error(res.msg || '登录失败')
+        }
+      }
+    })
   }
 
   public render() {
@@ -56,7 +59,7 @@ class Login extends React.Component<LoginProps, {}> {
         <div className="login-form">
           <div className="login-logo">
             <i></i>
-            <span>南昌市公安局数字天网</span>
+            {/* <span>南昌市公安局数字天网</span> */}
           </div>
           <Form className="form-con" onSubmit={this.login}>
             <Form.Item>

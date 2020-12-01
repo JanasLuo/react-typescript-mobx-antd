@@ -31,7 +31,8 @@ class Main extends React.Component<RouteComponentProps<{}>, {}> {
   }
 
   public chooseMenu = async (item: any) => {
-    //
+    debugger
+    this.props.history.push('/dpadmin/main/user')
   }
 
   public sigout = async (): Promise<any> => {
@@ -65,8 +66,8 @@ class Main extends React.Component<RouteComponentProps<{}>, {}> {
               </Menu.Item>
             </Menu>
           </div>
-          <div id="reactApp"></div>
-          <div id="vueApp" style={{ height: '400px' }}></div>
+          {/* <div id="reactApp" style={{ width: '100%' }}></div> */}
+          {/* <div id="vueApp" style={{ height: '400px' }}></div> */}
           <div className="right-body">
             <MainRoute {...this.props}></MainRoute>
             <MicroApp name="dpadmin" url="//localhost:30000"></MicroApp>
