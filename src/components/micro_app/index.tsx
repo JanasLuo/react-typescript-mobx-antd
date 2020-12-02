@@ -20,7 +20,7 @@ const MicroApp = (props: any) => {
     }
   }, [])
   return (
-    <div ref={container} style={{ height: '300px', overflow: 'auto' }}></div>
+    <div ref={container} style={{ height: '500px', overflow: 'auto' }}></div>
   )
 }
 export default MicroApp

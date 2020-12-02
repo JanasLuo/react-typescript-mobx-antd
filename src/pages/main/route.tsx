@@ -17,6 +17,14 @@ const Work = Loadable({
   loader: () => import('./work'),
   loading: LoadableLoading
 })
+const Micro = Loadable({
+  loader: () => import('./micro'),
+  loading: LoadableLoading
+})
+const Micro2 = Loadable({
+  loader: () => import('./micro2'),
+  loading: LoadableLoading
+})
 const notFound = Loadable({
   loader: () => import('src/components/error/404'),
   loading: LoadableLoading
@@ -39,6 +47,8 @@ class MainRoute extends React.Component<any, {}> {
           <Switch location={location}>
             <Route path="/main/home" component={Home} />
             <Route path="/main/work" component={Work} />
+            <Route path="/main/micro" component={Micro} />
+            <Route path="/main/micro2" component={Micro2} />
             <Route path="/main/404" component={notFound} />
             {/* <Redirect to="/main/404" /> */}
           </Switch>

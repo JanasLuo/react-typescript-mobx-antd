@@ -9,7 +9,7 @@ import HeaderNav from 'src/components/header'
 import { UserService } from 'src/services/user'
 import { UserStore } from 'src/stores/modules/user'
 // import MicroApp from '../../components/micro_app'
-// import style from '../../styles/stylus/main.styl'
+import style from './main.styl'
 @inject('userService', 'userStore')
 @observer
 class Main extends React.Component<RouteComponentProps<{}>, {}> {
@@ -47,11 +47,11 @@ class Main extends React.Component<RouteComponentProps<{}>, {}> {
   }
   public render() {
     return (
-      <div className="main">
+      <div className={`main ${style.main}`}>
         <HeaderNav sigout={this.sigout} />
         <div className="main-body">
           <div className="menu-slide"></div>
-          <div className="left-menu">
+          <div className={`left-menu ${style['left-menu']}`}>
             <Menu
               onClick={this.changeMenu}
               selectedKeys={this.selectItem}
@@ -86,6 +86,20 @@ class Main extends React.Component<RouteComponentProps<{}>, {}> {
                 title={'重点人'}
               >
                 <span className="menu-name">重点人</span>
+              </Menu.Item>
+              <Menu.Item
+                onClick={this.chooseMenu.bind(this, '/main/micro')}
+                key={'micro'}
+                title={'MicroApp组件'}
+              >
+                <span className="menu-name">MicroApp组件</span>
+              </Menu.Item>
+              <Menu.Item
+                onClick={this.chooseMenu.bind(this, '/main/micro2')}
+                key={'micro2'}
+                title={'MicroApp组件'}
+              >
+                <span className="menu-name">MicroApp组件2</span>
               </Menu.Item>
             </Menu>
           </div>

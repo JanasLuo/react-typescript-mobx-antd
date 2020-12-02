@@ -28,6 +28,7 @@ export default class AppRouter extends React.Component<{}, {}> {
       <Router history={history}>
         <Switch>
           <Route path="/main" component={LoadableMain} />
+          {/* 微应用前缀也需要配置 */}
           <Route path="/dpadmin" component={LoadableMain} />
           <Route path="/keyperson" component={LoadableMain} />
           <Route path="/login" component={LoadableLogin} />

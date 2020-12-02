@@ -3,7 +3,8 @@ import { inject, observer } from 'mobx-react'
 import { UserStore } from 'src/stores/modules/user'
 import { RouteComponentProps } from 'react-router'
 import { observable } from 'mobx'
-import './index.styl'
+import style from './index.styl'
+import { Button } from 'antd'
 interface HomePorps extends RouteComponentProps {
   userStore: UserStore
 }
@@ -24,9 +25,10 @@ export default class Home extends React.Component<HomePorps, {}> {
   }
   public render() {
     return (
-      <div className="home-main">
+      <div className={style['home-main']}>
         <div>基座路由页面</div>
         <div>首页</div>
+        <Button>按钮</Button>
         <svg width="200" height="200" viewBox="0 0 200 200">
           {/* 2*3.14*r = 314 */}
           {/* <circle
