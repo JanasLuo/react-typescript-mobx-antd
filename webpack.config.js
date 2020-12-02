@@ -7,18 +7,18 @@ module.exports = {
         return {
           ...rule,
           oneOf: [
-            {
-              test: /\.css$/,
-              loader: "style-loader!css-loader?modules&localIdentName=[name]-[hash:base64:10]"
-            },
+            // {
+            //   test: /\.css$/,
+            //   loader: "style-loader!css-loader?modules&localIdentName=[name]-[hash:base64:10]"
+            // },
             {
               test: /\.styl$/,
-              // loader: 'style-loader!css-loader?modules&localIdentName=[name]-[hash:base64:10]!stylus-loader'
-              loaders: [
-                'style-loader',
-                'css-loader?modules&localIdentName=[name]-[hash:base64:5]',
-                'stylus-loader'
-              ]
+              loader: 'style-loader!css-loader?modules&localIdentName=[name]-[hash:base64:10]!stylus-loader'
+              // loaders: [
+              //   'style-loader',
+              //   'css-loader?modules&localIdentName=[name]-[hash:base64:5]',
+              //   'stylus-loader'
+              // ]
             },
             ...rule.oneOf
           ]

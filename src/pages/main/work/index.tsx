@@ -17,29 +17,15 @@ export default class Home extends React.Component<HomePorps, {}> {
     super(props)
     this.userStore = props.userStore
   }
-  public componentDidMount() {
-    setTimeout(() => {
-      this.strokeDasharray = '314 314'
-    }, 1000)
-  }
   public render() {
     return (
       <div className="home-main">
-        <div>基座路由页面</div>
-        <div>首页</div>
-        <svg width="200" height="200" viewBox="0 0 200 200">
-          {/* 2*3.14*r = 314 */}
-          {/* <circle
-            id="circle"
-            cx="100"
-            cy="80"
-            r="50"
-            fill="gray"
-            stroke-width="5"
-            stroke="green"
-            stroke-dasharray={this.strokeDasharray}
-          /> */}
-        </svg>
+        <iframe
+          src="http://localhost:30000/main/group"
+          width="100%"
+          height="100%"
+          style={{ border: 'none' }}
+        ></iframe>
       </div>
     )
   }

@@ -31,7 +31,6 @@ class Main extends React.Component<RouteComponentProps<{}>, {}> {
   }
 
   public chooseMenu = async (path: any) => {
-    debugger
     this.props.history.push(path)
   }
 
@@ -44,8 +43,6 @@ class Main extends React.Component<RouteComponentProps<{}>, {}> {
     }
   }
   public changeMenu = (e: any) => {
-    debugger
-    console.log('click ', e)
     this.selectItem = [e.key]
   }
   public render() {
@@ -72,9 +69,9 @@ class Main extends React.Component<RouteComponentProps<{}>, {}> {
               <Menu.Item
                 onClick={this.chooseMenu.bind(this, '/main/work')}
                 key={'work'}
-                title={'工作台'}
+                title={'iframe嵌套'}
               >
-                <span className="menu-name">工作台</span>
+                <span className="menu-name">iframe嵌套</span>
               </Menu.Item>
               <Menu.Item
                 onClick={this.chooseMenu.bind(this, '/dpadmin')}

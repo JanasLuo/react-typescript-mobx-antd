@@ -13,6 +13,10 @@ const Home = Loadable({
   loader: () => import('./home'),
   loading: LoadableLoading
 })
+const Work = Loadable({
+  loader: () => import('./work'),
+  loading: LoadableLoading
+})
 const notFound = Loadable({
   loader: () => import('src/components/error/404'),
   loading: LoadableLoading
@@ -34,7 +38,7 @@ class MainRoute extends React.Component<any, {}> {
         >
           <Switch location={location}>
             <Route path="/main/home" component={Home} />
-            <Route path="/main/group" component={Home} />
+            <Route path="/main/work" component={Work} />
             <Route path="/main/404" component={notFound} />
             {/* <Redirect to="/main/404" /> */}
           </Switch>

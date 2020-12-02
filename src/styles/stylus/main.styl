@@ -39,6 +39,10 @@
       .ant-menu-dark .ant-menu-item
         font-size 16px
         line-height 40px
+        height 40px
+
+      .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected
+        background-color #1890ff
 
       .main-body
         position relative
@@ -55,10 +59,9 @@
           z-index 102
 
         .left-menu
-          flex 0 0 200px
+          flex 0 0 160px
           height calc(100% + 10px)
           top -10px
-          z-index 1001
           overflow-x hidden
           transition 500ms
           background-color #132C68
@@ -88,6 +91,7 @@
           width 100%
           height 100%
           z-index 100
+          overflow auto
 
           .main-route
             width 100%
