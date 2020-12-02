@@ -33,6 +33,7 @@ class MainRoute extends React.Component<any, {}> {
           classNames={'fade'}
         >
           <Switch location={location}>
+            <Route path="/main/home" component={Home} />
             <Route path="/main/group" component={Home} />
             <Route path="/main/404" component={notFound} />
             {/* <Redirect to="/main/404" /> */}

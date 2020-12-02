@@ -1,26 +1,26 @@
 /* hooks组件 */
 
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react'
 // import { inject } from 'mobx-react'
-import { observer, useLocalStore } from 'mobx-react-lite'; // 6.x or mobx-react-lite@1.4.0
-import moment from 'moment';
-import userStore from 'src/stores/modules/user';
+import { observer, useLocalStore } from 'mobx-react-lite' // 6.x or mobx-react-lite@1.4.0
+import moment from 'moment'
+import userStore from 'src/stores/modules/user'
 // import { useHistory } from 'react-router';
-import styles from './header.styl';
+import styles from './header.styl'
 
 export interface HeaderProps {
-  sigout: () => Promise<any>;
+  sigout: () => Promise<any>
 }
 
 const Header = (props: HeaderProps) => {
-  const store = useLocalStore(() => userStore);
-  const [count, setCount] = useState(0);
-  const timeStamp: React.RefObject<any> = useRef(null);
+  const store = useLocalStore(() => userStore)
+  const [count, setCount] = useState(0)
+  const timeStamp: React.RefObject<any> = useRef(null)
 
   /* 集成Mobx测试 */
-  const back = useCallback(() => store.sigout(), []);
+  const back = useCallback(() => store.sigout(), [])
   function sigoutByMobx() {
-    back();
+    back()
   }
   /* 集成react-router测试 */
   // const history = useHistory();
@@ -31,16 +31,16 @@ const Header = (props: HeaderProps) => {
     const update = () => {
       timeStamp.current.innerHTML = moment(new Date()).format(
         'YYYY-MM-DD HH:mm:ss'
-      );
-      setCount((c) => c + 1);
+      )
+      setCount(c => c + 1)
       // setCount(count + 1)
-    };
+    }
     // update()
-    const timer = setInterval(update, 1000);
+    const timer = setInterval(update, 1000)
     return () => {
-      clearInterval(timer);
-    };
-  }, []);
+      clearInterval(timer)
+    }
+  }, [])
   return (
     <div className={`${'header-main'} ${styles.header}`}>
       <div className="left-box">
@@ -52,7 +52,7 @@ const Header = (props: HeaderProps) => {
       <div className="mid-box">
         <div className="title">
           <i className="home-logo"></i>
-          <span className="title-text">南昌市公安局数字天网</span>
+          <span className="title-text"></span>
         </div>
       </div>
       <div className="right-box">
@@ -68,7 +68,7 @@ const Header = (props: HeaderProps) => {
         {/* <span className="logout" onClick={() => sigoutByRouter()}>退出</span> */}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default observer(Header);
+export default observer(Header)

@@ -29,6 +29,7 @@ export default class AppRouter extends React.Component<{}, {}> {
         <Switch>
           <Route path="/main" component={LoadableMain} />
           <Route path="/dpadmin" component={LoadableMain} />
+          <Route path="/keyperson" component={LoadableMain} />
           <Route path="/login" component={LoadableLogin} />
           <Redirect to="/main" />
         </Switch>

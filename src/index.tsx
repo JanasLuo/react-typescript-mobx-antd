@@ -14,29 +14,29 @@ moment.locale('zh-cn')
 import 'antd/dist/antd.css'
 import './styles/stylus/index.styl'
 
-// import { registerMicroApps, start } from 'qiankun'
+import { registerMicroApps, start } from 'qiankun'
 
-// registerMicroApps([
-//   {
-//     name: 'dpadmin', // app name registered
-//     entry: '//localhost:30000',
-//     container: '#reactApp',
-//     activeRule: '/dpadmin'
-//   },
-//   {
-//     name: 'vueApp',
-//     entry: '//localhost:10000',
-//     container: '#vueApp',
-//     activeRule: '/vueApp'
-//   },
-//   {
-//     name: 'react-app',
-//     entry: '//localhost:20000',
-//     container: '#reactApp',
-//     activeRule: '/vueApp'
-//   }
-// ])
-// start()
+registerMicroApps([
+  {
+    name: 'dpadmin', // app name registered
+    entry: '//localhost:30000',
+    container: '#dpadmin',
+    activeRule: '/dpadmin'
+  },
+  {
+    name: 'vueApp',
+    entry: '//localhost:10000',
+    container: '#vueApp',
+    activeRule: '/vueApp'
+  },
+  {
+    name: 'keyperson',
+    entry: '//localhost:3001',
+    container: '#keyperson',
+    activeRule: '/keyperson'
+  }
+])
+start()
 ReactDOM.render(
   <Provider {...stores} {...services}>
     <App>
