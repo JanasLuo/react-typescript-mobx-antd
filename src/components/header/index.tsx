@@ -27,6 +27,15 @@ const Header = (props: HeaderProps) => {
   // function sigoutByRouter () {
   //   history.push('/login');
   // }
+  const sendMes = () => {
+    // window.postMessage({type: 'fullScreenMap', data: 'test'}, '*')
+    const event = new CustomEvent('cat', {
+      detail: {
+        hazcheeseburger: true
+      }
+    });
+    window.dispatchEvent(event);
+  }
   useEffect(() => {
     const update = () => {
       timeStamp.current.innerHTML = moment(new Date()).format(
@@ -44,7 +53,7 @@ const Header = (props: HeaderProps) => {
   return (
     <div className={`${'header-main'} ${styles.header}`}>
       <div className="left-box">
-        <div className="op-box">
+        <div className="op-box" onClick={sendMes}>
           <i className="menu"></i>
           <span>菜单</span>
         </div>

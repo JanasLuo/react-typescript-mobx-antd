@@ -10,9 +10,12 @@ const MicroApp = (props: any) => {
         {
           name: props.name,
           entry: props.url,
-          container: container.current
+          container: container.current,
+          props: { name: 'qiankun' }
+        },
+        { 
+          // singular: false
         }
-        // { sandbox: { strictStyleIsolation: true } }
       )
     }, 100)
     return () => {
@@ -20,7 +23,7 @@ const MicroApp = (props: any) => {
     }
   }, [])
   return (
-    <div ref={container} style={{ height: '500px', overflow: 'auto' }}></div>
+    <div ref={container} style={{ height: '300px', overflow: 'auto' }}></div>
   )
 }
 export default MicroApp

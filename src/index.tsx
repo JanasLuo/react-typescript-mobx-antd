@@ -15,13 +15,21 @@ import 'antd/dist/antd.css'
 import './styles/stylus/index.styl'
 
 import { registerMicroApps, start } from 'qiankun'
-
+// @ts-ignore
+window.a = 'a'
+console.log('root window', window)
+window.addEventListener('message', (e: any) => {
+  if (e.data.type === 'fullScreenMap') {
+    console.log('e', e)
+  }
+})
 registerMicroApps([
   {
     name: 'dpadmin', // app name registered
     entry: '//localhost:30000',
     container: '#dpadmin',
-    activeRule: '/dpadmin'
+    activeRule: '/dpadmin',
+    props: { name: 'qiankun' }
   },
   {
     name: 'vueApp',
@@ -33,7 +41,8 @@ registerMicroApps([
     name: 'keyperson',
     entry: '//localhost:3001',
     container: '#keyperson',
-    activeRule: '/keyperson'
+    activeRule: '/keyperson',
+    props: { name: 'qiankun' }
   }
 ])
 start()
