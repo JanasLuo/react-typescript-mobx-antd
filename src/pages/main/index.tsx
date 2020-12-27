@@ -47,7 +47,7 @@ class Main extends React.Component<RouteComponentProps<{}>, {}> {
   }
   public render() {
     return (
-      <div className={`main ${style.main}`}>
+      <div className={`base-main ${style.main}`}>
         <HeaderNav sigout={this.sigout} />
         <div className="main-body">
           <div className="menu-slide"></div>
@@ -94,24 +94,19 @@ class Main extends React.Component<RouteComponentProps<{}>, {}> {
               >
                 <span className="menu-name">MicroApp组件</span>
               </Menu.Item>
-              <Menu.Item
+              {/* <Menu.Item
                 onClick={this.chooseMenu.bind(this, '/main/micro2')}
                 key={'micro2'}
                 title={'MicroApp组件'}
               >
                 <span className="menu-name">MicroApp组件2</span>
-              </Menu.Item>
+              </Menu.Item> */}
             </Menu>
           </div>
-          {/* <div className="micro-app" style={{ width: '100%', height: '100%' }}>
-           
-          </div> */}
           <div className="right-body">
             <div id="dpadmin"></div>
             <div id="keyperson"></div>
             <MainRoute {...this.props}></MainRoute>
-            {/* <MicroApp name="dpadmin" url="//localhost:30000"></MicroApp> */}
-            {/* <MicroApp name="keyperson" url="//localhost:3001"></MicroApp> */}
           </div>
         </div>
       </div>

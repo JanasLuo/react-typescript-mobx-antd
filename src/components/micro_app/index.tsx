@@ -13,8 +13,11 @@ const MicroApp = (props: any) => {
           container: container.current,
           props: { name: 'qiankun' }
         },
-        { 
-          // singular: false
+        {
+          // singular: false,
+          // {
+          //   sandbox: { strictStyleIsolation: true } // 严格的样式隔离 shadow dom
+          // }
         }
       )
     }, 100)
@@ -23,7 +26,7 @@ const MicroApp = (props: any) => {
     }
   }, [])
   return (
-    <div ref={container} style={{ height: '300px', overflow: 'auto' }}></div>
+    <div ref={container} style={{ height: '400px', overflow: 'auto' }}></div>
   )
 }
 export default MicroApp

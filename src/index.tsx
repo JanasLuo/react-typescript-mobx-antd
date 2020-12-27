@@ -25,8 +25,8 @@ window.addEventListener('message', (e: any) => {
 })
 registerMicroApps([
   {
-    name: 'dpadmin', // app name registered
-    entry: '//localhost:30000',
+    name: 'dpadmin', // 要和微应用webpack打包的output.library名字一致
+    entry: '//localhost:9015',
     container: '#dpadmin',
     activeRule: '/dpadmin',
     props: { name: 'qiankun' }
@@ -39,13 +39,16 @@ registerMicroApps([
   },
   {
     name: 'keyperson',
-    entry: '//localhost:3001',
+    entry: '//localhost:9016',
     container: '#keyperson',
     activeRule: '/keyperson',
     props: { name: 'qiankun' }
   }
 ])
 start()
+// {
+//   sandbox: { strictStyleIsolation: true } // 严格的样式隔离 shadow dom
+// }
 ReactDOM.render(
   <Provider {...stores} {...services}>
     <App>
