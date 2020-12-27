@@ -82,7 +82,7 @@
     "no-debugger": false,
     "no-duplicate-variable": true,
     "no-empty": true,
-    "no-eval": true,
+    "no-eval": false,
     "no-shadowed-variable": false,
     "no-string-literal": true,
     "no-switch-case-fall-through": true,

@@ -26,7 +26,7 @@ class App extends React.Component<{}, {}> {
     return (
       <ConfigProvider locale={zh_CN}>
         <div className="app">
-          <div>{this.props.children}</div>
+          <div style={{ height: '100%' }}>{this.props.children}</div>
           <div
             className={`loading-box ${
               this.loaderStore.getLoading ? 'show' : ''
@@ -34,11 +34,6 @@ class App extends React.Component<{}, {}> {
           >
             <Loading />
           </div>
-          {/* <div id="reactApp" style={{ height: '200px' }}></div> */}
-          {/* <div id="vueApp" style={{ height: '400px'}}></div> */}
-          {/* <MicroApp name="react-app" url="//localhost:20000"></MicroApp>
-          <MicroApp name="dpadmin" url="//localhost:30000"></MicroApp> */}
-          {/* <MicroApp name="vueApp" url="//localhost:10000"></MicroApp> */}
         </div>
       </ConfigProvider>
     )

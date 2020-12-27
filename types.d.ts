@@ -1,3 +1,11 @@
+/*
+ * @Descripttion:
+ * @version:
+ * @Author: luolei
+ * @Date: 2020-10-23 15:25:20
+ * @LastEditors: luolei
+ * @LastEditTime: 2020-12-27 18:53:17
+ */
 declare module '*.svg'
 declare module '*.png'
 declare module '*.jpg'

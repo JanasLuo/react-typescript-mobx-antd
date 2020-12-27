@@ -8,8 +8,6 @@ import HeaderNav from 'src/components/header'
 
 import { UserService } from 'src/services/user'
 import { UserStore } from 'src/stores/modules/user'
-import MicroApp from '../../components/micro_app'
-// import style from '../../styles/stylus/main.styl'
 @inject('userService', 'userStore')
 @observer
 class Main extends React.Component<RouteComponentProps<{}>, {}> {
@@ -65,11 +63,8 @@ class Main extends React.Component<RouteComponentProps<{}>, {}> {
               </Menu.Item>
             </Menu>
           </div>
-          <div id="reactApp"></div>
-          <div id="vueApp" style={{ height: '400px' }}></div>
           <div className="right-body">
             <MainRoute {...this.props}></MainRoute>
-            <MicroApp name="dpadmin" url="//localhost:30000"></MicroApp>
           </div>
         </div>
       </div>

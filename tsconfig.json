@@ -21,7 +21,8 @@
     "noUnusedLocals": true,
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "skipLibCheck": true
   },
   "exclude": [
     "node_modules",
@@ -33,5 +34,5 @@
     "src/setupTests.ts",
     "config"
   ],
-  "types": ["typePatches", "webpack-env"]
+  "types": ["typePatches", "webpack-env"],
 }

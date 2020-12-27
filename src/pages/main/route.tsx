@@ -10,7 +10,7 @@ import Loadable from 'react-loadable'
 import { LoadableLoading } from 'src/components/loading'
 
 const Home = Loadable({
-  loader: () => import('./home'),
+  loader: () => import('./home/index'),
   loading: LoadableLoading
 })
 const notFound = Loadable({
@@ -33,9 +33,8 @@ class MainRoute extends React.Component<any, {}> {
           classNames={'fade'}
         >
           <Switch location={location}>
-            <Route path="/main/group" component={Home} />
+            <Route path="/main/home" component={Home} />
             <Route path="/main/404" component={notFound} />
-            {/* <Redirect to="/main/404" /> */}
           </Switch>
         </CSSTransition>
       </TransitionGroup>

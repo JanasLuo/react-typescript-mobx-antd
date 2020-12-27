@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@antv/l7": "^2.3.3",
+    "@antv/l7-maps": "^2.3.3",
     "@types/react-css-modules": "^4.6.2",
     "@types/react-router": "^5.1.4",
     "antd": "^3.24.0",
