@@ -26,7 +26,7 @@ class App extends React.Component<{}, {}> {
     return (
       <ConfigProvider locale={zh_CN}>
         <div className="app">
-          <div>{this.props.children}</div>
+          {this.props.children}
           <div
             className={`loading-box ${
               this.loaderStore.getLoading ? 'show' : ''
